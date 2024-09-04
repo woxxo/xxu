@@ -2,16 +2,22 @@
 
 A simple http server suitable for backend behind a reverse proxy. Working with Bun only.
 
-To install dependencies:
+To install from repo into the new folder:
 
 ```bash
-bun install
+bun create woxxo/xxu
 ```
 
-To run:
+To run the installed package:
 
 ```bash
 bun run start
+```
+
+To run the package direct from GitHub:
+
+```bash
+bun x woxxo/xxu
 ```
 
 Free software by [woxxo](https://github.com/woxxo).
