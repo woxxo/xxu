@@ -7,8 +7,8 @@ To import as a module:
 bun add woxxo/xxu
 ```
 ```js
-import { Xxu } from "xxu";
-const xxu = new Xxu();
+import { Xxu } from 'xxu';
+const xxu = new Xxu(8008, () => 'Hello, XXU!');
 console.log(xxu.version);
 ```
 
@@ -19,6 +19,7 @@ bun create woxxo/xxu
 
 To run the installed package:
 ```bash
+cd xxu
 bun run start
 ```
 

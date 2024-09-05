@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-import { Xxu } from "./xxu";
+import { Xxu } from './xxu';
 
 const xxu = new Xxu();
 
