@@ -1,13 +1,13 @@
 {
 	"name": "xxu",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A simple http server for Bun",
 	"license": "UNLICENSED",
-	"main": "src/index.js",
-	"bin": "src/cli.js",
+	"main": "./src/xxu/index.js",
+	"bin": "./src/cli.js",
 	"repository": "github:woxxo/xxu",
 	"scripts": {
-		"start": "bun src/index.js",
+		"start": "bun ./src/start.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {},

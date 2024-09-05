@@ -1,3 +1,7 @@
 #!/usr/bin/env bun
 
-console.log('Hello from CLI!');
+import { Xxu } from "./xxu";
+
+const xxu = new Xxu();
+
+console.log(`Hello from CLI! Using server "${xxu.version}"`);
