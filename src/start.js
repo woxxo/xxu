@@ -32,5 +32,4 @@ const xxu = new Xxu(8811, (method, path, headers) => {
 });
 
 
-
-console.log(`Hello from START! Using server "${xxu.version}"`);
+console.log(`Hello from START! Running "${xxu.version}" on ${xxu.hostname}:${xxu.port}`);

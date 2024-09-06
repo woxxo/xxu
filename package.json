@@ -1,6 +1,6 @@
 {
 	"name": "xxu",
-	"version": "0.0.7",
+	"version": "0.1.0",
 	"description": "A simple http server for Bun",
 	"license": "UNLICENSED",
 	"main": "./src/xxu/index.js",
