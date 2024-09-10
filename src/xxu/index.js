@@ -1,5 +1,5 @@
 export class Xxu {
-	static #VERSION = 'XXU server v.0.1.0';
+	static #VERSION = 'XXU server v.0.1.1';
 	
 	static #defaultHandler = (method, path, headers) => {
 		return `xxu: ${new Date().toTimeString()}\nxxu: ${method} ${path}\n${JSON.stringify(headers)}`;
