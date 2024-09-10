@@ -14,7 +14,7 @@ console.log(xxu.version);
 Return the response in form of a string, a prepared Response() object or a file from handler function:
 ```js
 //file
-return Bun.file('./public/bun.jpg');
+return Bun.file('./public_html/bun.jpg');
 
 //string
 return `<!DOCTYPE html><html><body>${method} ${path}</body></html>`;
