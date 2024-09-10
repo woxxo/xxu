@@ -45,5 +45,11 @@ To run the package direct from GitHub:
 ```bash
 bun x woxxo/xxu
 ```
+or from npmjs.com
+```bash
+bun x xxu
+```
+
+
 
 Free software by [woxxo](https://github.com/woxxo).

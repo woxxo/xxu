@@ -17,7 +17,7 @@ const xxu = new Xxu(8811, (method, path, headers) => {
 			});
 			//break;
 		case '/picture':
-			return Bun.file('./public/bun.jpg');
+			return Bun.file('./public_html/bun.jpg');
 			//break;
 		default:	
 			return `
