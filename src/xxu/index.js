@@ -11,7 +11,7 @@ export class Xxu {
 
 	#server;
 	#port = 3050;
-	#hostname = '127.0.0.1';
+	#hostname = '0.0.0.0';
 	#handler = Xxu.#defaultHandler;
 	#serverSettings = {
 		port: this.#port,
