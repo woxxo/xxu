@@ -1,5 +1,5 @@
 export class Xxu {
-	static #VERSION = 'XXU server v.0.1.1';
+	static #VERSION = 'XXU server v.0.1.2';
 	
 	static #defaultHandler = (method, path, headers) => {
 		return `xxu: ${new Date().toTimeString()}\nxxu: ${method} ${path}\n${JSON.stringify(headers)}`;
@@ -11,7 +11,7 @@ export class Xxu {
 
 	#server;
 	#port = 3050;
-	#hostname = '0.0.0.0';
+	#hostname = '0.0.0.0';  //for docker 0.0.0.0, more secure is 127.0.0.1 
 	#handler = Xxu.#defaultHandler;
 	#serverSettings = {
 		port: this.#port,
