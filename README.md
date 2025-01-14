@@ -1,8 +1,10 @@
-# XXU
+# XXU server
 
-A simple http server suitable for backend behind a reverse proxy. Working with [Bun](https://github.com/oven-sh/bun) only.
+A simple http server with built-in jsx support suitable for backend behind a reverse proxy. Working with [Bun](https://github.com/oven-sh/bun) only.
 
-To import as a module:
+### Quick start
+
+To import as a module from Github:
 ```bash
 bun add woxxo/xxu
 ```
@@ -26,6 +28,25 @@ return await renderToReadableStream(<App />);
 return new Response(`I'm a teapot`, { status: 418 });
 ```
 
+### JSX setup
+
+Minified [react](https://github.com/facebook/react/tree/main/packages/react) and [react-dom/server](https://github.com/facebook/react/tree/main/packages/react-dom) are included into the package and allow to render React Server Components.
+
+Settings in `bunfig.toml`:
+```bash
+jsx = "react-jsx"
+jsxImportSource = "xxu"
+```
+
+Use JSX markup:
+```js
+import { renderToReadableStream } from 'xxu/reacc';
+await renderToReadableStream(<div>Hello, world!</d>, {
+	bootstrapScriptContent: 'alert("Page loaded");'
+});
+```
+
+### How to install and run
 
 To install from repo into the new folder:
 ```bash
@@ -42,7 +63,10 @@ or just
 ```bash
 bun start
 ```
-
+check JSX rendering
+```bash
+bun run jsx
+```
 
 To run the package direct from GitHub:
 ```bash
@@ -52,7 +76,5 @@ or from npmjs.com
 ```bash
 bun x xxu
 ```
-
-
 
 Free software by [woxxo](https://github.com/woxxo).
