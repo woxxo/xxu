@@ -1,0 +1,27 @@
+{
+	"name": "xxu",
+	"version": "0.2.0",
+	"description": "A simple http backend server for Bun with built-in jsx support",
+	"license": "UNLICENSED",
+	"main": "./src/xxu/index.js",
+	"bin": "./src/cli.js",
+	"repository": "github:woxxo/xxu",
+	"scripts": {
+		"start": "bun ./src/start.js",
+		"jsx": "bun ./src/start-jsx.jsx",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"exports": {
+		".": "./src/xxu/index.js",
+		"./reacc": "./reacc/index.js",
+		"./jsx-runtime": "./reacc/index.js",
+		"./jsx-dev-runtime": "./reacc/index.js"
+	},
+	"dependencies": {
+		"xxu": "github:woxxo/xxu"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"author": "woxxo"
+}
