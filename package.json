@@ -18,7 +18,6 @@
 		"./jsx-dev-runtime": "./reacc/index.js"
 	},
 	"dependencies": {
-		"xxu": "woxxo/xxu"
 	},
 	"devDependencies": {
 		"@types/bun": "latest"
