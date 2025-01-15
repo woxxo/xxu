@@ -12,7 +12,7 @@ const xxu = new Xxu(8811, (method, path, headers) => {
 				status: 418,
 				headers: {
 					'Content-Type': 'text/html; charset=utf-8',
-					'Set-Cookie': `teapot=false; SameSite=Lax; path=/`,
+					'Set-Cookie': `teapot=true; SameSite=Lax; path=/`,
 				},
 			});
 			//break;

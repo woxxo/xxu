@@ -41,7 +41,7 @@ jsxImportSource = "xxu"
 Use JSX markup:
 ```js
 import { renderToReadableStream } from 'xxu/reacc';
-await renderToReadableStream(<div>Hello, world!</d>, {
+await renderToReadableStream(<div>Hello, world!</div>, {
 	bootstrapScriptContent: 'alert("Page loaded");'
 });
 ```
@@ -75,6 +75,11 @@ bun x woxxo/xxu
 or from npmjs.com
 ```bash
 bun x xxu
+```
+
+To run the tests (see `tests` folder):
+```bash
+bun test
 ```
 
 Free software by [woxxo](https://github.com/woxxo).

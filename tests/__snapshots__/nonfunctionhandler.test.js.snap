@@ -1,0 +1,34 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function snap 1`] = `Response (8 bytes) {
+  ok: true,
+  url: "http://127.0.0.1:3091/",
+  status: 200,
+  statusText: "OK",
+  headers: Headers {},
+  redirected: false,
+  bodyUsed: false,
+  Blob (8 bytes)
+}Response {}`;
+
+exports[`async function snap 1`] = `Response (14 bytes) {
+  ok: true,
+  url: "http://127.0.0.1:3091/",
+  status: 200,
+  statusText: "OK",
+  headers: Headers {},
+  redirected: false,
+  bodyUsed: false,
+  Blob (14 bytes)
+}Response {}`;
+
+exports[`not a function snap 1`] = `Response (14 bytes) {
+  ok: false,
+  url: "http://127.0.0.1:3091/",
+  status: 500,
+  statusText: "Internal Server Error",
+  headers: Headers {},
+  redirected: false,
+  bodyUsed: false,
+  Blob (14 bytes)
+}Response {}`;

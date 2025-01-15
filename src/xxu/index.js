@@ -1,5 +1,5 @@
 export class Xxu {
-	static #VERSION = 'XXU server v.0.2.2';
+	static #VERSION = 'XXU server v.0.3.0';
 	
 	static #defaultHandler = (method, path, headers) => {
 		return `xxu: ${new Date().toTimeString()}\nxxu: ${method} ${path}\n${JSON.stringify(headers)}`;
@@ -17,19 +17,21 @@ export class Xxu {
 		port: this.#port,
 		hostname: this.#hostname,
 		development: false,
+		id: Xxu.#VERSION,
 		fetch: async ({method, url, headers}) => {
 			const pathStart = url.indexOf('/', 11);
 			const pathEnd = url.indexOf('?', pathStart + 1);
-			const path = pathEnd === -1 ? url.substring(pathStart) : url.substring(pathStart, pathEnd);
+			const path = url.substring(pathStart, pathEnd >>> 0);
+			const params = url.substring(pathEnd >>> 0);
 
 			let resp;
 
 			switch (this.#handler?.constructor.name) {
 				case 'Function':
-					resp = this.#handler(method, path, headers);
+					resp = this.#handler(method, path, headers, params);
 					break;
 				case 'AsyncFunction':
-					resp = await this.#handler(method, path, headers);
+					resp = await this.#handler(method, path, headers, params);
 					break;
 				default:
 					console.log('Handler is not a function!');
@@ -59,6 +61,7 @@ export class Xxu {
 		this.#serverSettings.port = port;
 		this.#handler = handler;
 		this.#server = Bun.serve(this.#serverSettings);
+		console.log(`Server ${this.#server.id} was started.`);
 	}
 
 	get version() {
@@ -74,8 +77,8 @@ export class Xxu {
 	}
 
 	stop() {
-		console.log('Server exiting...');
-		this.#server.stop();
+		console.log(`Server ${this.#server.id} was stopped.`);
+		this.#server.stop(true); //forced to close all connections
 	}
 
 	setHandler(handler = Xxu.#defaultHandler) {

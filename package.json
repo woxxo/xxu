@@ -1,6 +1,6 @@
 {
 	"name": "xxu",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"description": "A simple http backend server for Bun with built-in jsx support",
 	"license": "UNLICENSED",
 	"main": "./src/xxu/index.js",
@@ -17,10 +17,10 @@
 		"./jsx-runtime": "./reacc/index.js",
 		"./jsx-dev-runtime": "./reacc/index.js"
 	},
-	"dependencies": {
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@types/bun": "latest"
 	},
+	"engines": { "bun": ">=1.1.43"},
 	"author": "woxxo"
 }

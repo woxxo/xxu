@@ -1,0 +1,12 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server running snap 1`] = `Response (9 bytes) {
+  ok: true,
+  url: "http://127.0.0.1:3091/",
+  status: 200,
+  statusText: "OK",
+  headers: Headers {},
+  redirected: false,
+  bodyUsed: false,
+  Blob (9 bytes)
+}Response {}`;
