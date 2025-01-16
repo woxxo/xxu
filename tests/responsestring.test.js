@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 import { Xxu } from 'xxu';
 
-const xxu = new Xxu(3091, (method, path, headers, params) => {
+const xxu = new Xxu(3091, ({ method, path, params }) => {
 	return `<!DOCTYPE html><html><body>${method}<br />${path}<br />${params}<br /></body></html>`;
 });
 

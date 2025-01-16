@@ -1,0 +1,11 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default handler get 1`] = `
+"xxu: GET
+xxu: /get/path"
+`;
+
+exports[`default handler delete 1`] = `
+"xxu: DELETE
+xxu: /delete/path"
+`;

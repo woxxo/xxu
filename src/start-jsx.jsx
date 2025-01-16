@@ -1,7 +1,7 @@
 import { Xxu } from 'xxu';
 import { renderToReadableStream } from 'xxu/reacc';
 
-const xxu = new Xxu(8811, async (method, path, headers) => {
+const xxu = new Xxu(8811, async () => {
 	return await renderToReadableStream(
 		<html lang="en">
 		<head>

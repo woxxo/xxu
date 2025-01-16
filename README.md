@@ -28,6 +28,24 @@ return await renderToReadableStream(<App />);
 return new Response(`I'm a teapot`, { status: 418 });
 ```
 
+### Usage
+
+Original request is parsed and transmitted to the handler function in form of an object with specific fields.
+```js
+import { Xxu } from 'xxu';
+const xxu = new Xxu(8008, (req) => {
+	req.method; //GET, HEAD, POST, PUT, DELETE, PATCH, OPTIONS
+	req.headers; //original headers from request
+	req.body;  //readable stream if method is POST, PUT, DELETE, PATCH, otherwise null
+	req.path; // /path/to/index.html
+	req.params; // ?a=1&b=2&c=3
+
+	if (req.body) console.log(await Bun.readableStreamToText(req.body));
+
+	return 'OK';
+});
+```
+
 ### JSX setup
 
 Minified [react](https://github.com/facebook/react/tree/main/packages/react) and [react-dom/server](https://github.com/facebook/react/tree/main/packages/react-dom) are included into the package and allow to render React Server Components.

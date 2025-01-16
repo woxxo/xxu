@@ -2,7 +2,7 @@ import { expect, test } from "bun:test";
 import { Xxu } from 'xxu';
 import { renderToReadableStream } from 'xxu/reacc';
 
-const xxu = new Xxu(3091, async (method, path) => {
+const xxu = new Xxu(3091, async ({ path }) => {
 	switch(path) {
 		case '/simple':
 			return await renderToReadableStream(<div>Hello, world!</div>);

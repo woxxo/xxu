@@ -1,8 +1,8 @@
 export class Xxu {
-	static #VERSION = 'XXU server v.0.3.0';
+	static #VERSION = 'XXU server v.0.4.0';
 	
-	static #defaultHandler = (method, path, headers) => {
-		return `xxu: ${new Date().toTimeString()}\nxxu: ${method} ${path}\n${JSON.stringify(headers)}`;
+	static #defaultHandler = ({ method, headers, body, path, params }) => {
+		return `xxu: ${method}\nxxu: ${path}`;
 	}
 
 	static #isBunFile = (file) => {
@@ -17,21 +17,39 @@ export class Xxu {
 		port: this.#port,
 		hostname: this.#hostname,
 		development: false,
-		id: Xxu.#VERSION,
-		fetch: async ({method, url, headers}) => {
+		id: `${Xxu.#VERSION} #${new Date().getMilliseconds()}`,
+		fetch: async ({method, url, headers, body}) => {
+			const req = {};  //collecting request data for handler
+
+			req.method = method;
+			req.headers = headers;
+			switch (method) {
+				case 'POST':
+				case 'DELETE':
+				case 'PUT':
+				case 'PATCH':
+					req.body = body; //readable stream
+					break;
+				default:
+					req.body = null;
+			}
+
 			const pathStart = url.indexOf('/', 11);
 			const pathEnd = url.indexOf('?', pathStart + 1);
 			const path = url.substring(pathStart, pathEnd >>> 0);
 			const params = url.substring(pathEnd >>> 0);
 
+			req.path = path;
+			req.params = params;
+
 			let resp;
 
 			switch (this.#handler?.constructor.name) {
 				case 'Function':
-					resp = this.#handler(method, path, headers, params);
+					resp = this.#handler(req);
 					break;
 				case 'AsyncFunction':
-					resp = await this.#handler(method, path, headers, params);
+					resp = await this.#handler(req);
 					break;
 				default:
 					console.log('Handler is not a function!');

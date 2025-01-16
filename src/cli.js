@@ -2,7 +2,7 @@
 
 import { Xxu } from './xxu';
 
-const handler1 = (m, path) => {
+const handler1 = ({ path }) => {
 	if (path === '/set2') {
 		xxu.setHandler(handler2);
 	}
@@ -19,7 +19,7 @@ const handler1 = (m, path) => {
 	return 'handler1';
 }
 
-const handler2 = async (m, path) => {
+const handler2 = async ({ path }) => {
 	if (path === '/set1') {
 		xxu.setHandler(handler1);
 	}

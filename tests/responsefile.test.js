@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 import { Xxu } from 'xxu';
 
-const xxu = new Xxu(3091, (method, path) => {
+const xxu = new Xxu(3091, () => {
 	return Bun.file('./public_html/bun.jpg');
 });
 

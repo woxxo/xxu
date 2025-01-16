@@ -5,7 +5,7 @@ import { Xxu } from './xxu';
 
 //await Bun.$`pwd`;
 
-const xxu = new Xxu(8811, (method, path, headers) => {
+const xxu = new Xxu(8811, ({ method, path, headers }) => {
 	switch (path) {
 		case '/teapot':
 			return new Response(`I'm a teapot`, {
