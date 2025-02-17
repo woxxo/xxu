@@ -21,10 +21,10 @@
 	"files": [
 		"LICENSE",
 		"README.md",
-		"./src/xxu/index.ts",
-		"./reacc/",
-		"./src/cli.js",
-		"./bunfig.toml"
+		"src/xxu/index.ts",
+		"reacc/",
+		"src/cli.js",
+		"bunfig.toml"
 	],
 	"dependencies": {},
 	"devDependencies": {
