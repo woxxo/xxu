@@ -1,29 +1,54 @@
+type HttpMethod = 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS';
+
+interface HandlerOptions {
+	method?: HttpMethod;
+	headers?: Headers;
+	body?: ReadableStream | null;
+	path?: string;
+	params?: string;
+}
+
+type HandlerResponse =
+	| Promise<BunFile>
+	| Promise<Response>
+	| Promise<string>
+	| BunFile
+	| Response
+	| string
+	| ReadableStream<any>
+	| Promise<ReadableStream>;
+
+type Handler = (options: HandlerOptions) => HandlerResponse;
+
+import { BunFile, Server } from 'bun';
+import packageJson from 'xxu/package.json' with { type: 'json' };
+
 export class Xxu {
-	static #VERSION = 'XXU server v.0.4.0';
-	
-	static #defaultHandler = ({ method, headers, body, path, params }) => {
+	static #VERSION = `XXU server v.${packageJson.version}`;
+
+	static #defaultHandler: Handler = ({ method, path }) => {
 		return `xxu: ${method}\nxxu: ${path}`;
 	}
 
-	static #isBunFile = (file) => {
+	static #isBunFile = (file: any) => {
 		return file instanceof Blob && 'name' in file && file.name.length > 0;
 	};
 
-	#server;
+	#server: Server;
 	#port = 3050;
 	#hostname = '127.0.0.1';  //for docker 0.0.0.0
-	#handler = Xxu.#defaultHandler;
+	#handler: Handler = Xxu.#defaultHandler;
 	#serverSettings = {
 		port: this.#port,
 		hostname: this.#hostname,
 		development: false,
 		id: `${Xxu.#VERSION} #${new Date().getMilliseconds()}`,
-		fetch: async ({method, url, headers, body}) => {
-			const req = {};  //collecting request data for handler
+		fetch: async ({ method, url, headers, body }) => {
+			const req: HandlerOptions = {};  //collecting request data for handler
 
 			req.method = method;
 			req.headers = headers;
-			switch (method) {
+			switch (req.method) {
 				case 'POST':
 				case 'DELETE':
 				case 'PUT':
@@ -42,7 +67,7 @@ export class Xxu {
 			req.path = path;
 			req.params = params;
 
-			let resp;
+			let resp: any;
 
 			switch (this.#handler?.constructor.name) {
 				case 'Function':
@@ -70,7 +95,7 @@ export class Xxu {
 				headers: {
 					'Content-Type': 'text/html; charset=utf-8',
 					//'Set-Cookie': `session${(Math.random() * 9999999 | 0)}=${(Math.random() * 9999999 | 0)}; SameSite=Lax; path=/`,
-				 },
+				},
 			});
 		},
 	};
