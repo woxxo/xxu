@@ -1,6 +1,6 @@
 {
 	"name": "xxu",
-	"version": "0.5.0",
+	"version": "0.5.1",
 	"description": "A simple http backend server for Bun with built-in jsx support",
 	"license": "UNLICENSED",
 	"main": "./src/xxu/index.ts",

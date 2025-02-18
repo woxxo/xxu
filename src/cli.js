@@ -1,5 +1,7 @@
 #!/usr/bin/env bun
 
+// @jsxImportSource xxu
+
 import { Xxu } from 'xxu';
 import { renderToReadableStream } from 'xxu/reacc';
 
